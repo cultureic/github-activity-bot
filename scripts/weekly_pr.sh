@@ -5,8 +5,9 @@
 
 set -e  # Exit on any error
 
-# Configuration
-REPO_PATH="/Users/cesarangulo/Documents/github-activity-bot"
+# Configuration - Use dynamic paths
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_PATH="$(dirname "$SCRIPT_DIR")"
 LOG_FILE="$REPO_PATH/automation.log"
 BASE_BRANCH="main"
 
@@ -167,17 +168,41 @@ PR_BODY="## 📈 Weekly Project Updates
 ---
 *This PR was automatically created as part of weekly project maintenance.*"
 
-# Create the PR
-gh pr create \
+# Create the PR and auto-merge it
+PR_URL=$(gh pr create \
     --title "$PR_TITLE" \
     --body "$PR_BODY" \
     --base "$BASE_BRANCH" \
     --head "$BRANCH_NAME" \
-    --label "automated,weekly-update,documentation"
+    --assignee "@me")
 
 log_message "PR created successfully: $PR_TITLE"
+log_message "PR URL: $PR_URL"
 
-# Switch back to base branch
+# Wait a moment for the PR to be fully created
+sleep 2
+
+# Auto-merge the PR (squash and merge)
+PR_NUMBER=$(echo "$PR_URL" | grep -o '[0-9]*$')
+if [ -n "$PR_NUMBER" ]; then
+    log_message "Auto-merging PR #$PR_NUMBER..."
+    
+    # Enable auto-merge with squash
+    gh pr merge "$PR_NUMBER" --squash --auto --delete-branch || {
+        log_message "Auto-merge failed, attempting manual merge..."
+        # If auto-merge fails, try manual merge
+        gh pr merge "$PR_NUMBER" --squash --delete-branch || {
+            log_message "Manual merge also failed, PR remains open"
+        }
+    }
+    
+    log_message "PR merged and branch deleted"
+else
+    log_message "Could not extract PR number from URL: $PR_URL"
+fi
+
+# Switch back to base branch and pull latest
 git checkout "$BASE_BRANCH"
+git pull origin "$BASE_BRANCH" || log_message "Warning: Could not pull latest changes"
 
 log_message "Weekly PR automation completed successfully"

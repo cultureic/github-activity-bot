@@ -5,8 +5,10 @@
 
 set -e  # Exit on any error
 
-SCRIPT_DIR="/Users/cesarangulo/Documents/github-activity-bot/scripts"
-LOG_FILE="/Users/cesarangulo/Documents/github-activity-bot/automation.log"
+# Use dynamic paths
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_PATH="$(dirname "$SCRIPT_DIR")"
+LOG_FILE="$REPO_PATH/automation.log"
 
 # Function to log messages
 log_message() {

@@ -1,0 +1,18 @@
+# GitHub Activity Automation Cron Jobs
+# This crontab runs daily commits and weekly PRs to maintain GitHub activity
+
+# Set PATH to ensure all commands are available
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# Run GitHub activity automation daily at 10:30 AM
+30 10 * * * /Users/cesarangulo/Documents/github-activity-bot/scripts/github_activity_automation.sh >> /Users/cesarangulo/Documents/github-activity-bot/cron.log 2>&1
+
+# Optional: Alternative schedules (commented out)
+# Run at 2:30 PM instead:
+# 30 14 * * * /Users/cesarangulo/Documents/github-activity-bot/scripts/github_activity_automation.sh >> /Users/cesarangulo/Documents/github-activity-bot/cron.log 2>&1
+
+# Run at 9:15 AM instead:
+# 15 9 * * * /Users/cesarangulo/Documents/github-activity-bot/scripts/github_activity_automation.sh >> /Users/cesarangulo/Documents/github-activity-bot/cron.log 2>&1
+
+# Weekly cleanup - remove old log entries on Sundays at 11 PM
+0 23 * * 0 find /Users/cesarangulo/Documents/github-activity-bot -name "*.log" -exec tail -n 1000 {} \; > /tmp/temp_log && mv /tmp/temp_log /Users/cesarangulo/Documents/github-activity-bot/automation.log
