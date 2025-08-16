@@ -11,9 +11,12 @@ REPO_PATH="$(dirname "$SCRIPT_DIR")"
 ACTIVITY_FILE="ACTIVITY.md"
 LOG_FILE="$REPO_PATH/automation.log"
 
-# Function to log messages
+# Function to log messages (with privacy protection)
 log_message() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+    local message="$1"
+    # Sanitize sensitive information from logs
+    message=$(echo "$message" | sed "s|$HOME|~|g" | sed 's|/Users/[^/]*/|/Users/USERNAME/|g')
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $message" | tee -a "$LOG_FILE"
 }
 
 # Change to repository directory
@@ -45,10 +48,25 @@ TODAY=$(date '+%Y-%m-%d')
 TIME=$(date '+%H:%M:%S')
 DAY_OF_WEEK=$(date '+%A')
 
-# Create a meaningful update
+# Scan for real activity from other repositories
+log_message "Scanning for daily activity across monitored repositories..."
+ACTIVITY_SUMMARY=$("$SCRIPT_DIR/activity_scanner.sh" summary 2>/dev/null)
+log_message "Activity summary: $ACTIVITY_SUMMARY"
+
+# Get project context
+PROJECT_CONTEXT=$("$SCRIPT_DIR/activity_scanner.sh" context 2>/dev/null)
+
+# Create a meaningful update with real activity data
 echo "" >> "$ACTIVITY_FILE"
 echo "### $TODAY ($DAY_OF_WEEK)" >> "$ACTIVITY_FILE"
 echo "- Automated activity commit at $TIME" >> "$ACTIVITY_FILE"
+echo "- **Daily Summary:** $ACTIVITY_SUMMARY" >> "$ACTIVITY_FILE"
+
+if [ -n "$PROJECT_CONTEXT" ]; then
+    echo "- **Recent Work:**" >> "$ACTIVITY_FILE"
+    echo "$PROJECT_CONTEXT" | sed 's/^/  /' >> "$ACTIVITY_FILE"
+fi
+
 echo "- Repository maintenance and health check completed" >> "$ACTIVITY_FILE"
 
 # Also update a simple metrics file

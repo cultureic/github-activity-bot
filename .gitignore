@@ -2,6 +2,9 @@
 github_automation_generated.cron
 github_automation_dynamic.cron
 
+# Activity tracking cache
+.activity_cache.json
+
 # Log files
 *.log
 cron.log
