@@ -45,21 +45,21 @@
 [2025-08-16 04:32:25] MAIN: Not Monday (day 6) - skipping weekly PR automation
 [2025-08-16 04:32:25] MAIN: GitHub activity automation completed successfully
 [2025-08-16 04:37:43] SCANNER: Starting daily activity scan...
-[2025-08-16 04:37:43] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/ckPayment
-[2025-08-16 04:37:43] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/BurnRoulette
-[2025-08-16 04:37:43] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/dvinity
+[2025-08-16 04:37:43] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:37:43] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:37:43] SCANNER: Scanning repository: ~/Documents/icp/dvinity
 [2025-08-16 04:37:44] SCANNER: Activity scan completed. Summary: Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:37:48] Starting daily commit automation...
 [2025-08-16 04:37:48] Scanning for daily activity across monitored repositories...
 [2025-08-16 04:37:48] SCANNER: Starting daily activity scan...
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/ckPayment
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/BurnRoulette
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/dvinity
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/dvinity
 [2025-08-16 04:37:49] SCANNER: Activity scan completed. Summary: Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:37:49] Activity summary: [2025-08-16 04:37:48] SCANNER: Starting daily activity scan...
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/ckPayment
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/BurnRoulette
-[2025-08-16 04:37:48] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/dvinity
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:37:48] SCANNER: Scanning repository: ~/Documents/icp/dvinity
 Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:37:49] SCANNER: Activity scan completed. Summary: Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:37:49] Commit created successfully
@@ -67,13 +67,13 @@ Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl b
 [2025-08-16 04:38:57] Starting daily commit automation...
 [2025-08-16 04:38:57] Scanning for daily activity across monitored repositories...
 [2025-08-16 04:38:57] SCANNER: Starting daily activity scan...
-[2025-08-16 04:38:57] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/ckPayment
-[2025-08-16 04:38:58] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/BurnRoulette
-[2025-08-16 04:38:58] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/dvinity
+[2025-08-16 04:38:57] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:38:58] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:38:58] SCANNER: Scanning repository: ~/Documents/icp/dvinity
 [2025-08-16 04:38:58] Activity summary: [2025-08-16 04:38:57] SCANNER: Starting daily activity scan...
-[2025-08-16 04:38:57] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/ckPayment
-[2025-08-16 04:38:58] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/BurnRoulette
-[2025-08-16 04:38:58] SCANNER: Scanning repository: /Users/cesarangulo/Documents/icp/dvinity
+[2025-08-16 04:38:57] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:38:58] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:38:58] SCANNER: Scanning repository: ~/Documents/icp/dvinity
 Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:38:58] Commit created successfully
 [2025-08-16 04:38:59] Daily commit automation completed successfully
@@ -90,3 +90,12 @@ Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl b
 Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
 [2025-08-16 04:39:58] Commit created successfully
 [2025-08-16 04:40:00] Daily commit automation completed successfully
+[2025-08-16 04:43:31] Starting daily commit automation...
+[2025-08-16 04:43:31] Scanning for daily activity across monitored repositories...
+[2025-08-16 04:43:31] SCANNER: Starting daily activity scan...
+[2025-08-16 04:43:31] SCANNER: Scanning repository: ~/Documents/icp/ckPayment
+[2025-08-16 04:43:32] SCANNER: Scanning repository: ~/Documents/icp/BurnRoulette
+[2025-08-16 04:43:32] SCANNER: Scanning repository: ~/Documents/icp/dvinity
+[2025-08-16 04:43:32] Activity summary: Active day: 11 commits across 1 repositories. Working on ckPayment (stage-2-wl branch). Languages: JS/TS (44 files) Python (1 files) Rust (4 files) 
+[2025-08-16 04:43:32] Commit created successfully
+[2025-08-16 04:43:33] Daily commit automation completed successfully
