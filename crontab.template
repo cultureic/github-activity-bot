@@ -1,0 +1,18 @@
+# GitHub Activity Automation Cron Jobs
+# This template is used by setup.sh to generate the actual crontab with dynamic paths
+
+# Set PATH to ensure all commands are available
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# Run GitHub activity automation daily at 10:30 AM
+30 10 * * * [REPO_PATH]/scripts/github_activity_automation.sh >> [REPO_PATH]/cron.log 2>&1
+
+# Optional: Alternative schedules (commented out)
+# Run at 2:30 PM instead:
+# 30 14 * * * [REPO_PATH]/scripts/github_activity_automation.sh >> [REPO_PATH]/cron.log 2>&1
+
+# Run at 9:15 AM instead:
+# 15 9 * * * [REPO_PATH]/scripts/github_activity_automation.sh >> [REPO_PATH]/cron.log 2>&1
+
+# Weekly cleanup - remove old log entries on Sundays at 11 PM
+0 23 * * 0 find [REPO_PATH] -name "*.log" -exec tail -n 1000 {} \; > /tmp/temp_log && mv /tmp/temp_log [REPO_PATH]/automation.log

@@ -27,8 +27,10 @@ An automated system to maintain GitHub activity through daily commits and weekly
 
 The automation runs daily at 10:30 AM via cron job:
 ```bash
-30 10 * * * /Users/cesarangulo/Documents/github-activity-bot/scripts/github_activity_automation.sh
+30 10 * * * /path/to/your/repo/scripts/github_activity_automation.sh
 ```
+
+*Note: The setup script automatically generates the correct paths for your system.*
 
 ## Setup
 

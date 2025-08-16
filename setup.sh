@@ -23,30 +23,17 @@ fi
 # Make sure all scripts are executable
 chmod +x "$SCRIPT_DIR/scripts"/*.sh
 
-# Create the crontab content with dynamic paths
-CRON_FILE="$SCRIPT_DIR/github_automation_dynamic.cron"
+# Create the crontab content with dynamic paths using template
+CRON_FILE="$SCRIPT_DIR/github_automation_generated.cron"
+TEMPLATE_FILE="$SCRIPT_DIR/crontab.template"
 
-cat > "$CRON_FILE" << EOF
-# GitHub Activity Automation Cron Jobs
-# This crontab runs daily commits and weekly PRs to maintain GitHub activity
-# Generated automatically with dynamic paths
+if [ ! -f "$TEMPLATE_FILE" ]; then
+    echo "❌ Error: Template file not found at $TEMPLATE_FILE"
+    exit 1
+fi
 
-# Set PATH to ensure all commands are available
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-
-# Run GitHub activity automation daily at 10:30 AM
-30 10 * * * $AUTOMATION_SCRIPT >> $REPO_PATH/cron.log 2>&1
-
-# Optional: Alternative schedules (commented out)
-# Run at 2:30 PM instead:
-# 30 14 * * * $AUTOMATION_SCRIPT >> $REPO_PATH/cron.log 2>&1
-
-# Run at 9:15 AM instead:
-# 15 9 * * * $AUTOMATION_SCRIPT >> $REPO_PATH/cron.log 2>&1
-
-# Weekly cleanup - remove old log entries on Sundays at 11 PM
-0 23 * * 0 find $REPO_PATH -name "*.log" -exec tail -n 1000 {} \\; > /tmp/temp_log && mv /tmp/temp_log $REPO_PATH/automation.log
-EOF
+# Generate cron file from template, replacing placeholders with actual paths
+sed "s|\[REPO_PATH\]|$REPO_PATH|g" "$TEMPLATE_FILE" > "$CRON_FILE"
 
 echo "📄 Generated cron configuration: $CRON_FILE"
 

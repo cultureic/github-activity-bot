@@ -1,0 +1,15 @@
+# Generated files with user-specific paths
+github_automation_generated.cron
+github_automation_dynamic.cron
+
+# Log files
+*.log
+cron.log
+automation.log
+
+# macOS system files
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
